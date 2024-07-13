@@ -1,0 +1,12 @@
+Revision history for Perl module gpost
+
+2.1.3
+2024-07-15
+
+- Created CPAN POD for PAUSE inclusion
+- Included support for JSON and XML post content for server API implementation
+
+0.1.0
+2018-03-10
+
+- Initial release.

@@ -1,0 +1,149 @@
+# gpost
+
+## Description
+
+gpost is a Perl module designed for handling HTTP POST requests and parsing various content types like URL-encoded forms, multipart forms, JSON, and XML. It provides methods to decode and manage POST data, handle file uploads, and manipulate key-value pairs.
+
+## Installation
+
+To install gpost, you can use CPAN or download it from GitHub:
+
+bash
+
+# Using CPAN (if available)
+$ cpan install gpost
+
+# From GitHub
+$ git clone https://github.com/DomeroSoftware/gpost.git
+$ cd gpost
+$ perl Makefile.PL
+$ make
+$ make test
+$ make install
+
+## Usage
+
+### Basic Usage Example
+
+perl
+
+use gpost;
+
+# Initialize gpost object
+my $gpost = gpost->init('application/x-www-form-urlencoded', $post_data);
+
+# Access decoded key-value pairs
+my $value = $gpost->get('key_name');
+
+# Check if file uploaded and save it
+if ($gpost->uploaded('file_field')) {
+    $gpost->save('file_field', '/path/to/save/directory', 'custom_filename.ext');
+}
+
+# Access request URI components
+my $segment = $gpost->request_uri(1);  # Example: Retrieves the second segment from the request URI
+
+# More operations as needed...
+
+
+### Methods
+
+#### Initialization
+
+perl
+
+# Initialize gpost object
+my $gpost = gpost->init($content_type, $post_data);
+
+
+#### Accessing Data
+
+perl
+
+# Get value associated with a key
+my $value = $gpost->get('key_name');
+
+# Check if a file was uploaded for a specific form field
+my $is_uploaded = $gpost->uploaded('file_field');
+
+# Get uploaded file information
+my $file_info = $gpost->uploadedfile('file_field');
+
+
+#### Working with Key-Value Pairs
+
+perl
+
+# Add a key-value pair
+$gpost->add('new_key', 'value');
+
+# Set a key-value pair, replacing existing values
+$gpost->set('existing_key', 'new_value');
+
+# Check if a key exists
+my $exists = $gpost->exist('key_name');
+
+# Get all key-value pairs
+my $all_pairs = $gpost->getall();
+
+# Get the number of values associated with a key
+my $count = $gpost->num('key_name');
+
+
+#### Decoding Data
+
+perl
+
+# Decode URL-encoded data
+$gpost->decode_url();
+
+# Decode MIME multipart form data
+$gpost->decode_mime();
+
+# Decode JSON data
+$gpost->decode_json();
+
+# Decode XML data
+$gpost->decode_xml();
+
+
+### Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request with your changes.
+
+### License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+### Author
+
+- [Domero Software](https://github.com/DomeroSoftware)
+
+### Support
+
+For support, contact [domerosoftware@gmail.com](mailto:domerosoftware@gmail.com).
+
+### Issues
+
+If you encounter any issues or have suggestions, please [create an issue](https://github.com/DomeroSoftware/gpost/issues) on GitHub.
+
+### Notes:
+
+- Description: Provide a concise overview of what the module does and its main features.
+  
+- Installation: Include instructions on how to install the module using CPAN or from GitHub.
+  
+- Usage: Include basic examples of how to use the module, covering initialization, accessing data, methods available, etc.
+  
+- Methods: Detail each method provided by the module, including their purpose and usage.
+  
+- Contributing: Encourage contributions and provide guidelines for how others can contribute to the project.
+  
+- License: Specify the license under which the module is distributed (e.g., MIT, GPL).
+  
+- Author: Provide a link to the author's GitHub profile or contact information.
+  
+- Support: Offer a contact email address or link for users seeking support or assistance.
+  
+- Issues: Direct users to the GitHub issues page for reporting bugs or suggesting improvements.
+

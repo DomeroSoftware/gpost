@@ -1,0 +1,19 @@
+name: gpost
+abstract: Gideon CGI GET POST Engine
+version: 0.01
+author:
+  - Domero Software <domerosoftware@gmail.com>
+license: perl
+resources:
+  homepage: https://github.com/DomeroSoftware/gpost
+  repository:
+    type: git
+    url: https://github.com/DomeroSoftware/gpost.git
+    web: https://github.com/DomeroSoftware/gpost
+prereqs:
+  runtime:
+    requires:
+      JSON: '0'
+      XML::Simple: '0'
+      gfio: '0'
+      gerr: '0'
