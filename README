@@ -30,7 +30,7 @@ perl
 use gpost;
 
 # Initialize gpost object
-my $gpost = gpost->init('application/x-www-form-urlencoded', $post_data);
+my $gpost = gpost::init('application/x-www-form-urlencoded', $post_data);
 
 # Access decoded key-value pairs
 my $value = $gpost->get('key_name');
@@ -53,7 +53,7 @@ my $segment = $gpost->request_uri(1);  # Example: Retrieves the second segment f
 perl
 
 # Initialize gpost object
-my $gpost = gpost->init($content_type, $post_data);
+my $gpost = gpost::init($content_type, $post_data);
 
 
 #### Accessing Data
